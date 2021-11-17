@@ -179,8 +179,8 @@ def find_name_and_confirmation_number(msg):
     # George Bush's 12/25 Detroit trip (ABC123)
     new_email_subject_match = re.search(r"(?:[Ff][Ww][Dd]?: )?(\w+).* (\w+)'s.*\(([A-Z0-9]{6})\)", msg.subject)
 
-    # ABC123 George Bush
-    manual_email_subject_match = re.search(r"([A-Z0-9]{6})\s+(\w+) (\w+ ?\w+)", msg.subject)
+    # ABC123 | George | Bush
+    manual_email_subject_match = re.search(r"([A-Z0-9]{6})\s\|\s([A-Za-z ,.'-]+)\s\|\s([A-Za-z ,.'-]+)", msg.subject)
 
     if legacy_email_subject_match:
         log.debug("Found a legacy reservation email: {}".format(msg.subject))

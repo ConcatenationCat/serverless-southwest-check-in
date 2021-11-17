@@ -67,6 +67,16 @@ Or, if you don't have make installed:
 $ pip install -r lambda/requirements.txt -t lambda/vendor/python && terraform apply terraform/
 ```
 
+If that throws the error:
+
+> Error: Failed to load "terraform/" as a plan file
+
+Try:
+
+```
+$ pip install -r lambda/requirements.txt -t lambda/vendor/python && cd terraform && terraform apply
+```
+
 ### Add a flight
 
 New flights can be added by an SES email trigger or by manually executing an AWS Step Function.
